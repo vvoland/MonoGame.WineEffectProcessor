@@ -17,12 +17,12 @@ namespace WineEffectProcessor
 
         public Wine2MGFX(string wineMgfxBinary, string wineBin, string winePrefix)
         {
+            if (wineBin == null)
+                throw new ArgumentNullException(nameof(wineBin));
             if (winePrefix == null)
-            {
-                throw new ArgumentNullException(
-                    winePrefix,
-                    "Wine prefix must be set. If not sure, try /home/<your_name>/.wine");
-            }
+                throw new ArgumentNullException(nameof(winePrefix));
+            if (wineMgfxBinary == null)
+                throw new ArgumentNullException(nameof(wineMgfxBinary));
 
             WinePrefix = winePrefix;
             WineBinary = wineBin;

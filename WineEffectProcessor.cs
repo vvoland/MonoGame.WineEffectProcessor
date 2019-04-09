@@ -15,10 +15,11 @@ namespace WineEffectProcessor
 
         public WineEffectProcessor()
         {
+            string homeDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             Mgfx = new Wine2MGFX(
-                "/ext/wine/monogame/drive_c/Program Files (x86)/MSBuild/MonoGame/v3.0/Tools/2MGFX.exe",
-                "/usr/bin/wine64",
-                "/ext/wine/monogame/");
+                $"{homeDir}/.cache/monogame-wine/drive_c/Program Files (x86)/MSBuild/MonoGame/v3.0/Tools/2MGFX.exe",
+                "wine64",
+                $"{homeDir}/.cache/monogame-wine/");
         }
 
         public override CompiledEffectContent Process(EffectContent input, ContentProcessorContext context)
